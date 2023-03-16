@@ -1,0 +1,129 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>XPatAi | XPatAi Homepage</title>
+
+    <!-- Styles -->
+    <link rel='stylesheet' href='/css/dist/app.css?v=003' />
+    <!-- end Styles -->
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel='shortcut icon' href='/images/logo/iconl.png' />
+    <link rel='apple-touch-icon-precomposed' href='/images/logo/iconl.png' />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+    />
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+
+  </head>
+  <body class='dashboard'>
+    <div class='botn btn' id='btnSidebarToggle'>
+      <span class='fas fa-bars'></span>
+    </div>
+    <nav class='dashboard__sidebar'>
+      <div class='sidebar__logo'>
+        <a href='/'><img src='/images/logo/logon.png' alt='XpatAi' /></a>
+      </div>
+      <ul class='sidebar__menu'>
+        {{#if user}}
+          <li class='active'><a href='/dashboard'><span
+                class='icon-menu'
+              ></span>Dashboard</a></li>
+          <li><a href='/profile'><span
+                class='icon-ico-user'
+              ></span>Profile</a></li>
+          <li><a href='/referrals'><span
+                class='icon-ico-users'
+              ></span>Referrals</a></li>
+
+        {{/if}}
+
+        <li><a href='/#'><span class='icon-start'></span>Bot</a></li>
+        <li><a href='/#'><span class='icon-faqs'></span>FaQs</a></li>
+      </ul>
+
+      <div class='bottom'>
+        <ul class='list-social'>
+          <li>
+            <a target='_blank' href='https://twitter.com/xpatai'><span
+                class='icon-twitter'
+              ></span></a></li>
+          <li><a target='_blank' href='https://t.me/xpatink'><span
+                class='icon-telegram'
+              ></span></a></li>
+        </ul>
+        <p class='fs-14'>
+          © 2022. All rights reserved by
+          <a href='#'>XPatAi Team</a></p>
+      </div>
+    </nav>
+    <div class='dashboard__content'>
+
+      <div class='overlay'></div>
+      <div class='dashboard__header'>
+        <div class='dropdown'>
+          <a
+            href='#'
+            class='user'
+            id='dropdownMenu2'
+            data-toggle='dropdown'
+            aria-haspopup='true'
+            aria-expanded='false'
+          >
+            <img src='/images/avt/admin.jpg' alt='user' />
+          </a>
+          <div class='dropdown-menu' aria-labelledby='dropdownMenu2'>
+            <a href='/profile' class='dropdown-item'>Profile</a>
+            <a href='#' class='dropdown-item'>Edit Profile</a>
+          </div>
+        </div>
+        {{#if user}}
+          <a href='/auth/logout' class='btn-action-outline style-5' id="google-sign-out">
+            <span class='icon-ico-user'></span>
+            <span>Logout</span>
+          </a>
+        {{else}}
+
+          <a style='margin-left: 15px;' href='/auth/register'>
+            <span>Register</span>
+          </a>
+          <a href='/auth/login' class='btn-action-outline style-5'>
+            <span class='icon-ico-user'></span>
+            <span>Login</span>
+          </a>
+
+        {{/if}}
+      </div>
+
+      {{{body}}}
+
+    </div>
+
+    <script src='/js/google_auth.js?v=003'></script>
+    <script src='/js/apiCalls.js?v=003'></script>
+    <script src='/js/count-down.js?v=003'></script>
+    <script
+      src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+      integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+      crossorigin='anonymous'
+    ></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js'
+      integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+      crossorigin='anonymous'
+    ></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js'
+      integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+      crossorigin='anonymous'
+    ></script>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/app.js?v=003'></script>
+
+  </body>
+
+</html>

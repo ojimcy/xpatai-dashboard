@@ -1,0 +1,28 @@
+<section class='section-team style-4'>
+  <div class='container'>
+    <table class='table stripped' style='color: #fff;'>
+      {{#if user}}
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Last Mining</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each referrals}}
+            <tr>
+              <td>{{this.name}}</td>
+              <td>{{this.email}}</td>
+              {{#if this.lastMiningTime}}
+                <td>{{this.lastMiningTime}}</td>
+              {{else}}
+                <td>inactive</td>
+              {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+      {{/if}}
+    </table>
+  </div>
+</section>

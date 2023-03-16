@@ -1,0 +1,370 @@
+<div class='dashboard__main'>
+  <div class='banner'>
+    <div class='container'>
+      <div class="row">
+        <div class="col-xl-12">
+          {{#if flash.success}}
+          <div class="alert alert-success" role="alert">
+            {{flash.success}}
+          </div>
+          {{/if}}
+
+          {{#if flash.error}}
+          <div class="alert alert-success" role="alert">
+            {{flash.error}}
+          </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12">
+          {{#if notJoinedTelegram}}
+          <div class="alert alert-danger" role="alert">
+            <h6>
+              Telegram Task
+            </h6>
+            <h5>
+              Join our telegram group (<a href="https://t.me/xpatink">@xpatink</a>) and Subscribe to out 
+              telegram chanel (<a href="https://t.me/xpataiofficial">@xpataiofficial</a>) 
+            </h5>
+            <p>Possible earning: {{telegramTaskReward}} XINK</p>
+            <button class="btn btn-success" data-toggle="modal" data-target="#telegramModal">I have Joined</button>
+          </div>
+
+                    <!-- Modal -->
+          <div class="modal fade" id="telegramModal" tabindex="-1" role="dialog" aria-labelledby="telegramModalTitle" aria-hidden="true">
+            <form action="http://localhost:3001/api/mining/telegram" method="post">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="background-color: gray;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="telegramModalTitle">Submit Telegram Task</h5>
+                </div>
+                <div class="modal-body">
+                  <h6>
+                  Join our telegram group (<a href="https://t.me/xpatink">@xpatink</a>) and Subscribe to out 
+                  telegram chanel (<a href="https://t.me/xpataiofficial">@xpataiofficial</a>) 
+                </h6>
+                <input class="form-control" name="telegram" placeholder="Enter your telegram username"/>
+
+                <p class="text-danger">Note: All tasks will be manually checked before reward distribution</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Submit Task</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+          {{/if}}
+
+
+          {{#if notFollowedTwitter}}
+          <div class="alert alert-primary" role="alert">
+            <h6>
+              Twitter Task
+            </h6>
+            <h5>
+              Follow us on Twitter (<a href="https://twitter.com/XPatAI">@XPatAI</a>) and retweet the pinned post 
+            </h5>
+            <p>Possible earning: {{followTwitterReward}} XINK</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#twitterModal">Completed</button>
+          </div>
+
+                    <!-- Modal -->
+          <div class="modal fade" id="twitterModal" tabindex="-1" role="dialog" aria-labelledby="twitterModalTitle" aria-hidden="true">
+            <form action="http://localhost:3001/api/mining/twitter" method="post">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="background-color: gray;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="telegramModalTitle">Submit Twitter Task</h5>
+                </div>
+                <div class="modal-body">
+                  <h6>
+                  Follow us on Twitter (<a href="https://twitter.com/XPatAI">@XPatAI</a>) and retweet the pinned post 
+                </h6>
+                <input class="form-control" name="twitter" placeholder="Enter your telegram username"/>
+
+                <p class="text-danger">Note: All tasks will be manually checked before reward distribution</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Submit Task</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+          {{/if}}
+
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xl-6 col-md-12'>
+          <div class='block-text'>
+            <h2 class='title'>Join the XINK revolution and start mining today!
+            </h2>
+            <p class='desc'>Start mining effortlessly and earn XINK tokens with
+              our innovative AI-powered platform. Join a forward-thinking
+              community that's shaping the future of communication. Sign up now
+              and start mining your way to success!</p>
+          </div>
+          <div class='group-button mineBtnGrp'>
+            <a
+              href='http://localhost:3001/api/mining/start'
+              id="countdownButton" onclick="countdown()"
+              class='btn-action-outline style-3'
+            >
+              <span class='icon-rocket'></span>
+              <span class='ml-3' >Start Mining</span></a>
+          </div>
+
+          <ul class='content-list'>
+            <li>
+              <div class='countDown'><h3 id='countdown1'></h3></div>
+              <h6>Days</h6>
+              <h5 id='userCount'>+1k</h5>
+              <p>Miners</p>
+            </li>
+            <li>
+              <div class='countDown'><h3 id='countdown2'></h3></div>
+              <h6>Hours</h6>
+              <h5>+5k</h5>
+              <p>Mined</p>
+            </li>
+            <li>
+              <div class='countDown'><h3 id='countdown3'></h3></div>
+              <h6>Minute</h6>
+              <h5>+500 USD</h5>
+              <p>Earned</p>
+            </li>
+            <li>
+              <div class='countDown'><h3 id='countdown4'></h3></div>
+              <h6>Seconds</h6>
+
+            </li>
+          </ul>
+        </div>
+        
+        <div class='col-xl-6 col-md-12'>
+          <div class='banner-top__sale'>
+            <div class='card'>
+              <div class='card-body'>
+                <div class='mining-progress'>
+                  <div class='progress-circle'>
+                    <div class='mx-auto' data-v-e15969c4=''>
+                      <div
+                        class='relative flex items-center justify-center'
+                        data-v-e15969c4=''
+                      >
+                       <a href='http://localhost:3001/api/mining/start' id="startMining" class='btn-action-outline style-5 text-center miningBtn'>
+                       Click to Mine
+                       </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='sale-content'>
+                    {{#if user}}
+                      <p>Total Earnings:</p>
+                      <h5 id='totalEarning'>{{user.xinkballance}} XINK</h5>
+                      <p>Mining Rate:</p>
+                      <h5 id='miningRate'>{{user.miningRate}} XINK</h5>
+                      <p>Referral Count:</p>
+                      <h5 id='referralCount'>{{user.referralCount}}</h5>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+              <div class='card-footer'>
+                <a href='#' class='btn-action-outline style-5 text-center' onclick="withdraw()">
+                  <span class='icon-wallet' style='color: #14141f;'></span>
+                  <span>Withdraw</span></a>
+
+                {{#if user}}
+                  <a href='#' class='btn-action-outline style-3 text-center'  style='color: #14141f !important;' data-toggle="modal" data-target="#shareCode">
+                    <span class='icon-ico-social-share'></span>
+                    <span>Share</span></a>
+                    <!-- Modal -->
+                  <div class="modal fade" id="shareCode" tabindex="-1" role="dialog" aria-labelledby="shareCodeTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="socialActivitiesModalTitle">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class='mining-progress'>
+                            <div class='sale-content'>
+                              {{#if user}}
+                                <div class="shareCopy">
+                                  <h5>
+                                    <span  id='referralCode'>{{user.referralCode}} </span> 
+                                    <a id='copyToClipboard'> <span class='icon-copy'></span></a>
+                                  </h5>
+                                  <a href='#' class='btn-action-outline style-3 text-center'  onclick="shareCode()" data-toggle="modal" data-target="#shareCode">
+                                  <span class='icon-ico-social-share'></span>
+                                  <span>Share</span></a>
+                                </div>
+                              {{/if}}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <!-- Section ACTIVITY -->
+        <section class='road-map style-4'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col-md-12'>
+                <div class='block-text center'>
+                  <h3 class='heading'>ONE TIME ACTIVITY</h3>
+                  <p class='mt-16 fs-17'>Perform these activities to earn more XINK, Your account will be credited as soon as we verify the tasks.
+                  </p>
+                </div>
+
+                <div class='road-map__main'>
+                  <div class='box-roadmap left active'>
+                    <p class='time'>Posible Earnings: 0.5 XINK each</p>
+                    <h5 class='title'>Social Media</h5>
+                    <ul class='list'>
+                      <li>
+                        <div class='dot'></div>
+                          <a
+                            href='https://twitter.com/xpatai'
+                            class='fs-17'
+                          >Follow on twitter
+                          </a>
+                      </li>
+                      <li>
+                        <div class='dot'></div>
+                          <a
+                            href='https://t.me/xpataiofficial'
+                            class='fs-17'
+                          >Join Telegram Channel
+                          </a>
+                      </li>
+                      <li>
+                        <div class='dot'></div>
+                          <a href='https://t.me/xpatink' class='fs-17'>Join
+                            Telegram Group
+                          </a>
+                      </li>
+                      <li>
+                        <div class='dot'></div>
+                          <a href='https://t.me/xpatink' class='fs-17'>Subscribe
+                            to Youtube
+                          </a>
+                      </li>
+                    </ul>
+                    <a href='#' class='btn-action-outline style-5 text-center' data-toggle="modal" data-target="#socialActivitiesModal">Done</a>
+                  </div>
+                  <div class='box-roadmap right active'>
+                    <p class='time'>Posible Earnings: 2 XINK</p>
+                    <h5 class='title'>XPATAI CHATBOT App </h5>
+                    <ul class='list'>
+                      <li>
+                        <div class='dot'></div>
+                          <a
+                            href='https://twitter.com/xpatai'
+                            class='fs-17'
+                          >Download XPATAI CHATBOT App
+                          </a>
+                      </li>
+                      <li>
+                        <div class='dot'></div>
+                          <a
+                            href='https://twitter.com/xpatai'
+                            class='fs-17'
+                          >Rate the app an give possitive review
+                          </a>
+                      </li>
+                    </ul>
+                    <a href='#' class='btn-action-outline style-5 text-center'>Done</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Section ONE TIME EARNING  ACTIVITY -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="socialActivitiesModal" tabindex="-1" role="dialog" aria-labelledby="socialActivitiesModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="socialActivitiesModalTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method='POST' id='loginForm' action="/api/social-activities">
+            <div class='form-group'>
+              <label for='twitter'>Twitter Username<span>*</span> </label>
+              <input
+                type='text'
+                class='form-control'
+                id='twitter'
+                name='twitter'
+              />
+            </div>
+            <div class='form-group'>
+              <label for='telegram'>Telegram Username<span>*</span> </label>
+              <input
+                type='text'
+                class='form-control'
+                id='telegram'
+                name='telegram'
+              />
+            </div>
+            <div class='form-group'>
+              <label for='youtube'>Youtube Username<span>*</span> </label>
+              <input
+                type='text'
+                class='form-control'
+                id='youtube'
+                name='youtube'
+              />
+            </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id='loginBtn'>Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function shareCode() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Join us on our mining adventure',
+      text: `Use my invitation code ${document.getElementById('shareCodeInput').value} to sign up and start mining with us today!`,
+      url: window.location.href
+    }).then(() => {
+      console.log('Invitation code shared successfully');
+    }).catch(error => {
+      console.error('Error sharing invitation code:', error);
+    });
+  } else {
+    console.log('Web Share API not supported on this device');
+  }
+}
+</script>

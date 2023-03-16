@@ -1,0 +1,95 @@
+<section class='section-team style-4'>
+  <div class='container'>
+    <div class='row mt-27 justify-content-center'>
+      <div class='col-xl-4 col-md-6'>
+        <div class='team-box-s4 center'>
+          <div class='team-box__image'>
+            <a href='#'><img
+                src='/images/avt/admin.jpg'
+                alt='user'
+                alt='User'
+              /></a>
+          </div>
+          <div class='team-box__info'>
+            {{#if user}}
+              <a href='#' class='name h5'>{{user.name}}</a>
+              <p class='position fs-17'>Invitation Code:
+                <span id='referralCode'>{{user.referralCode}}</span>
+
+                <a href='' id='copyToClipboard'>
+                  <span class='icon-copy'></span></a>
+              </p>
+
+              <div class='invite-box'>
+                <div class='row'>
+                  <div class='col-2 mt-25'><span
+                      class='icon-users mt-25'
+                    ></span></div>
+                  <div class='col-9'>
+                    Earn 10 XINK per active referral. Referral bonus is uncapped
+                    <br />
+                    <a  data-toggle='modal' data-target='#shareCode' href=''>Start Inviting!</a>
+                  </div>
+                </div>
+              </div>
+
+              <ul class='list-social'>
+                <li><a href='#'><span class='icon-twitter'></span></a></li>
+                <li><a href='#'><span class='icon-Facebook'></span></a></li>
+                <li><a href='#'><span class='icon-Instagram'></span></a></li>
+                <li><a href='#'><span class='icon-telegram'></span></a></li>
+              </ul>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  class='modal fade'
+  id='shareCode'
+  tabindex='-1'
+  role='dialog'
+  aria-labelledby='shareCodeTitle'
+  aria-hidden='true'
+>
+  <div class='modal-dialog modal-dialog-centered' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='socialActivitiesModalTitle'>Modal title</h5>
+        <button
+          type='button'
+          class='close'
+          data-dismiss='modal'
+          aria-label='Close'
+        >
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body'>
+        <div class='mining-progres'>
+          <div class='sale-content'>
+            {{#if user}}
+              <div class='shareCopy'>
+                <h5>
+                  <span id='referralCode'>{{user.referralCode}} </span>
+                  <a id='copyToClipboard'> <span class='icon-copy'></span></a>
+                </h5>
+                <a
+                  href='#'
+                  class='btn-action-outline style-3 text-center'
+                  onclick='shareCode()'
+                  data-toggle='modal'
+                  data-target='#shareCode'
+                >
+                  <span class='icon-ico-social-share'></span>
+                  <span>Share</span></a>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

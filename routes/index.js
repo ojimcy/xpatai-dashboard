@@ -3,9 +3,13 @@ const router = express.Router();
 const axios = require('axios');
 
 router.get('/', async (req, res) => {
-  // Make a request to the backend to get the data
-  const data = await axios.get('http://localhost:3000/auth/user');
-  res.render('dashboard', { data: data.data });
+  res.render('dashboard');
 });
+router.get('/profile', async (req, res) => {
+    res.render('profile');
+  });
+  router.get('/referrals', async (req, res) => {
+    res.render('referrals');
+  });
 
 module.exports = router;
